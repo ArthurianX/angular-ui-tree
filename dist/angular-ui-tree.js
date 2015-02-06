@@ -1658,6 +1658,7 @@
 
             var bindDrag = function() {
               element.bind('touchstart mousedown', function (e) {
+                  console.log('Binding first', element);
                 if (!scope.$treeScope.multiSelect) {
                   dragDelaying = true;
                   dragStarted = false;
@@ -1672,6 +1673,15 @@
               });
               element.bind('touchend touchcancel mouseup', function() {
                 $timeout.cancel(dragTimer);
+              });
+
+              var noDragEl = angular.element(element)[0];
+              var noDragClass = angular.element(noDragEl.querySelector('.nodrag'));
+              //var noDragClass = angular.element(noDragEl.querySelector('.' + attrs.noDragClass));
+              noDragClass.bind('touchstart mousedown', function (e) {
+                //console.log('Binding the nodrag');
+                e.preventDefault();
+                e.stopPropagation();
               });
             };
 

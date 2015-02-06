@@ -7,7 +7,7 @@
           'glyphicon-chevron-right': collapsed,
           'glyphicon-chevron-down': !collapsed
         }"></span></a>
-    {{node.title}}
+    {{node.title}} <a href="javascript:;" class="nodrag">Grabbing this won't trigger drag.</a>
     <a class="pull-right btn btn-danger btn-xs" nodrag ng-click="remove(this)"><span
         class="glyphicon glyphicon-remove"></span></a>
     <a class="pull-right btn btn-primary btn-xs" nodrag ng-click="newSubItem(this)" style="margin-right: 8px;"><span
